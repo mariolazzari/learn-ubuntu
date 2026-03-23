@@ -89,6 +89,37 @@ Contains subdirectories with commands that are considered nonessential to the li
 
 Used for variable data, such as logs, databases, and temporary spool (email, printing). This is an important directory because it contains /var/log which is where most logs are stored.
 
+### Shells
+
+- Interfaces to Linux systems
+- Enviroments for running programs
+- Switch between them
+- Many options
+  - bash
+  - zsh, ksh, tcsh
+
+```sh
+# avaliable shells
+cat /etc/shells
+# current shell
+echo $0
+# change shell
+chsh
+```
+
+### Navigating directories with cd
+
+```sh
+# print working dir
+pwd
+# cd /home
+cd
+cd ..
+cd ../..
+cd /
+cd /home/mario
+```
+
 ## Networking
 
 ### Viewing IP
