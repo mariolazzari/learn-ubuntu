@@ -107,7 +107,7 @@ echo $0
 chsh
 ```
 
-### Navigating directories with cd
+### Navigating directories with _cd_
 
 ```sh
 # print working dir
@@ -118,6 +118,35 @@ cd ..
 cd ../..
 cd /
 cd /home/mario
+```
+
+### Listing files with _ls_
+
+- Lists files in current directory
+- Options
+
+```sh
+ls /home/mario
+# show hidden files
+ls -a
+# long format results
+ls -l
+# both options
+ls -la
+# sort by time and date
+ls -t
+# sort by extension
+ls -X
+# recursive tree list
+ls -R
+```
+
+### Using _cat_ to read files
+
+View files cointents
+
+```sh
+cat pets.txt
 ```
 
 ## Networking
@@ -131,7 +160,6 @@ ip a
 ls /etc/netplan/ # netplan configuration
 cat /etc/netplan/*
 ip route # default routes
-
 ```
 
 ### Enabling SSH
