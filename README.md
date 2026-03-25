@@ -149,6 +149,39 @@ View files cointents
 cat pets.txt
 ```
 
+### Writing and combining files with _cat_
+
+```sh
+# write in file
+cat >test3
+hi
+mario
+ctrl+C
+# view content
+cat test3
+# combining files
+cat men-names women-names > all-names
+cat all-names
+```
+
+### _man_
+
+```sh
+man cat
+cat -n all-names
+```
+
+### Creating new directories with _mkdir_
+
+```sh
+mkdir mario
+ls
+cd mario
+mkdir lazzari
+mkdir {dir1,dir2,dir3,dir4}
+mkdir -v test-dir
+```
+
 ## Networking
 
 ### Viewing IP
