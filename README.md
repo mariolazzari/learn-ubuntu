@@ -182,6 +182,16 @@ mkdir {dir1,dir2,dir3,dir4}
 mkdir -v test-dir
 ```
 
+### How to copy files and directories with _cp_
+
+```sh
+cp file1 file2
+cp -r dir1 dir2
+cp --help | less
+# backup destination file
+cp -b file1 file2 # file2
+```
+
 ## Networking
 
 ### Viewing IP
