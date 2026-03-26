@@ -192,6 +192,21 @@ cp --help | less
 cp -b file1 file2 # file2
 ```
 
+### Deleting files with _rm_
+
+```sh
+# delete file
+rm deleteme
+# delete dir
+rm deleteme
+# delete dir and content
+rm -r deleteme
+# confirmation -i
+rm -ri deleteme
+# use wild cards
+rm *.txt
+```
+
 ## Networking
 
 ### Viewing IP
