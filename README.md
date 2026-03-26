@@ -207,6 +207,18 @@ rm -ri deleteme
 rm *.txt
 ```
 
+### Moving files with _mv_
+
+```sh
+touch homewor
+mv homewor homework
+mv file dest_dir
+cd dest_dir
+ls
+# confirmation
+mv -i
+```
+
 ## Networking
 
 ### Viewing IP
