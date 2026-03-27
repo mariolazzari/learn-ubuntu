@@ -219,6 +219,39 @@ ls
 mv -i
 ```
 
+### Sudo & root
+
+#### Root account
+
+- Superuser
+- Kost privileged user
+  - Software installation
+  - Files ownerships
+- Do use this accoutn for daily job
+  - Security risks
+  - Mistakes
+
+#### _sudo_
+
+- Allows you to run commands as another users
+- Amministrations grants
+- Root disabled by default on Ubuntu
+- Add user to suduers
+  - usermod -aG sudo mario
+  - sudo command
+  - sudo -u whoami username
+
+### Finding files
+
+find <start path> -name 'search'
+
+```sh
+find /home/mario -name 'homework'
+# case insensitive
+find /home/mario -iname 'homework'
+find / -iname '*openssh*'
+```
+
 ## Networking
 
 ### Viewing IP
