@@ -317,3 +317,25 @@ If you've dabbled in Linux before, you might be familiar with the "ifconfig" com
 #### /etc/network/interfaces
 
 In the previous versions of Ubuntu, you managed your network interfaces with a file called "interfaces" located at /etc/network. In 20.04 and moving forward, the preferred method is to leverage netplan (as I demonstrate on the 'Setting a static IP' lesson). If you'd like to revert back to the old way of managing your networking (and not use netplan), you can follow the instructions at the blog in the resources section of this article.
+
+### _grep_
+
+```sh
+grep 'mario' admin-users
+# case insensitive
+grep -i 'Mario' admin-users
+grep '192.168.1.1' *
+# recursive
+grep -r '192.168.1.1' *
+# count rows
+grep -c '192.168.1.1' *
+grep -ci '192.168.1.1' *
+echo $HOME
+grep -r 'mario' $HOME
+```
+
+### Edit files with _nano_
+
+```sh
+nano
+```
