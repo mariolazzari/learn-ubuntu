@@ -339,3 +339,52 @@ grep -r 'mario' $HOME
 ```sh
 nano
 ```
+
+### Comparing two files with _diff_
+
+```sh
+diff file1 file2
+diff -s file1 file2
+# side by side
+diff -y file1 file2
+# directories
+diff dir1 dir2
+```
+
+### Archiving files with _tar_
+
+```sh
+# c->create, v->verbose, f->file
+tar -cvf backup.tarfile1 file2 file3
+# archive dir
+tac -cvf config.tar /home/mario/config
+# untar: x->extract in current directory
+tac -xvf config.tar
+# -C-> destination
+tac -xvf config.tar -C /home/mario/destination
+```
+
+### How to compress files
+
+```sh
+# Gzip
+tac -cvzf config.tar.gz /home/mario/config
+# bzip2
+tac -cvjf config.tar.bzip2 /home/mario/config
+```
+
+### Changing user & root passwords
+
+```sh
+# change current user password
+passwd
+# change user passord
+sudo passwd mario
+sudo passwd root
+```
+
+### Switching users with _su_
+
+```sh
+
+```
