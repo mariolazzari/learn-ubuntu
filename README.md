@@ -386,5 +386,86 @@ sudo passwd root
 ### Switching users with _su_
 
 ```sh
+su - mario
+whoami
+# root. - -> full login and change home
+su -
+```
+
+### Changing your _hostname_
+
+```sh
+sudo cat /etc/hostname
+hostname
+sudo nano /etc/hostname
+sudo nano /etc/hosts
+sudo reboot
+```
+
+### Challenge #1
+
+```sh
+# task1
+cat /etc/hostname
+nano /etc/hostname
+cat /etc/hostname
+nano /etc/hosts
+cat /etc/hosts
+reboot
+hostname
+
+# task2
+ls
+mkdir backup
+mkdir -p main/ oldfiles
+cd main
+ls
+cd ..
+
+# task3
+touch /main/oldfiles/fileA
+touch /main/oldfiles/fileB
+touch /main/oldfiles/fileC
+
+# task4
+cd
+nano /main/oldfile/fileA
+diff -y oldcfg.txt newcfg.txt
+
+# task5
+echo $0
+ps -p $$
+
+# task6
+passwd
+
+# task7
+cd /home
+ls mario/main
+rm -ri mario/main
+
+# task8
+find /home -iname '*.txt'
+
+# task9
+cd
+find . -iname 'm.*' -type d
+```
+
+## Intermediate
+
+### Installing software
+
+```sh
+sudo apt update
+sudo apt install nmap
+apt list --upgradeable
+sudo apt upgrade
+apt list --installed | less
+```
+
+### Removing / unistalling software
+
+```sh
 
 ```
