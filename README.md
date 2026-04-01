@@ -467,5 +467,27 @@ apt list --installed | less
 ### Removing / unistalling software
 
 ```sh
+sudo apt remove apache2
+# remove config files
+sudo apt purge apache2
+```
+
+### Output redirection
+
+| Overwrite | Stream | Append |
+| --------- | ------ | ------ |
+| >         | stdout | >>     |
+| <         | stdin  | <<     |
+| 2>        | stderr | 2>>    |
+
+```sh
+find / -name "*.sh" > log.txt
+ls > files.txt
+ls % 2> err.txt
+```
+
+### Output redirection lab
+
+```sh
 
 ```
