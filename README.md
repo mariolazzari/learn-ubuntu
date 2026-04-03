@@ -489,5 +489,29 @@ ls % 2> err.txt
 ### Output redirection lab
 
 ```sh
-
+ls % 2> error.txt
+cat error.txt
+find / -name "*.sh" 2> log.txt
+# avoid new file creation
+find / -name "*.sh" 2> /dev/null
+cat /dev/null
+hostnamectl > host_details.txt
+cat host_details.txt
+# append
+ls / >>files.txt
 ```
+
+### Output redirection with pipes
+
+#### What is pipe?
+
+- Another form of redirection
+- Redirect standard output to another command
+
+```sh
+la | grep 'mario'
+# tee reads from stdin and writes on multiple stdout
+echo "hello" | tee output.txt
+```
+
+### Hot to sort
