@@ -501,7 +501,7 @@ cat host_details.txt
 ls / >>files.txt
 ```
 
-### Output redirection with pipes
+### Output redirection with *pipes*
 
 #### What is pipe?
 
@@ -514,4 +514,23 @@ la | grep 'mario'
 echo "hello" | tee output.txt
 ```
 
-### Hot to sort
+### How to *sort*
+
+```sh
+sort countries
+# save sorting
+sort -o countries countries
+# reverse sorting
+sort -r countries
+# remove duplicates
+sort -u countries
+man sort
+# sort ls by 5th column
+ls -l | sort -nk5
+```
+
+### Editing with *sed*
+
+```sh
+
+```
