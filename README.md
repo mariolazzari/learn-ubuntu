@@ -565,4 +565,18 @@ ln -s scripts/hello.sh soft-hello.sh
 ls -ila
 ```
 
-###
+### Create new user
+
+```sh
+sudo adduser maria
+```
+
+### User groups
+
+```sh
+groups
+groups mario
+sudo adduser mario sudo
+```
+
+### Permissions
