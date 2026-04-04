@@ -579,4 +579,138 @@ groups mario
 sudo adduser mario sudo
 ```
 
-### Permissions
+### Permissions with _chmod_
+
+```sh
+chmod 700 myfile.txt
+chmod 666 file.txt
+chmod 777 all.txt
+```
+
+### Ownerships with _chown_
+
+```sh
+sudo chown mario file.txt
+sudo chgrp riit file.txt
+```
+
+### Shutdown and reboot
+
+```sh
+# shutdown in minutes
+shutdown -h 5
+# reboot
+shutdown -r
+# shutdown in minutes
+shutdown +30
+# cancel pending shutdown
+shutdown -c
+```
+
+### Aliases
+
+Add aliases in _.bashrc_
+
+```sh
+alias reach='ping -c 4 1.1.1.1'
+alias c='clear'
+```
+
+### Challenge lab 2
+
+```sh
+apt install apache2
+ls /var/www/html/index.html
+sudo mv /var/www/html/index.html /var/www/html/index.html.old
+grep -in 'remotedb' /etc/debconf.conf
+sudo adduser dinesh
+```
+
+## Networking
+
+### IP informations
+
+```sh
+# deprecated
+ifconfig
+# new
+ip a
+ls /etc/netplan
+cat /etc/netplan
+ip route
+```
+
+### SSH
+
+```sh
+sudo apt install openssh-server
+sudo systemctl status ssh
+ssh mario@myserver
+```
+
+### Static IP
+
+```sh
+cd /etc/netplan
+cat
+```
+
+```yaml
+network:
+  version: 2
+  renderer: networkd
+
+  ethernets:
+    eth0:
+      dhcp4: no
+      addresses:
+        - 192.168.1.100/24
+      routes:
+        - to: default
+          via: 192.168.1.1
+      nameservers:
+        addresses:
+          - 8.8.8.8
+          - 1.1.1.1
+```
+
+Older versions
+
+```yaml
+network:
+  version: 2
+  renderer: networkd
+
+  ethernets:
+    eth0:
+      dhcp4: no
+      addresses:
+        - 192.168.1.100/24
+      gateway4: 192.168.1.1
+      nameservers:
+        addresses:
+          - 8.8.8.8
+```
+
+```sh
+sudo netplan try
+sudo netplan apply
+```
+
+### ipconfic vs ip
+
+[doc](https://linuxconfig.org/how-to-switch-back-networking-to-etc-network-interfaces-on-ubuntu-20-04-focal-fossa-linux)
+
+#### ifconfig vs ip addr
+
+If you've dabbled in Linux before, you might be familiar with the "ifconfig" command. This is somewhat equivalent to the "ipconfig" command in Windows, and lets you view IP configuration in Linux, and also assign static IP addresses. That said, the ifconfig command is being deprecated in linux, in favor of the ip addr command (or "ip a" as I prefer to type!)
+
+#### /etc/network/interfaces
+
+In the previous versions of Ubuntu, you managed your network interfaces with a file called "interfaces" located at /etc/network. In 20.04 and moving forward, the preferred method is to leverage netplan (as I demonstrate on the 'Setting a static IP' lesson). If you'd like to revert back to the old way of managing your networking (and not use netplan), you can follow the instructions at the blog in the resources section of this article.
+
+### Enable interface
+
+```sh
+
+```
