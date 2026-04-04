@@ -712,5 +712,31 @@ In the previous versions of Ubuntu, you managed your network interfaces with a f
 ### Enable interface
 
 ```sh
+ip a | grep 'status'
+sudo ip link set eth0 down
+sudo ip link set eth0 up
+```
+
+### Public key authentication
+
+```sh
+cd
+cd .ssh
+ssh-keygen -t rsa
+ssh-copy-id mario@mariolazzari.it
+```
+
+### DNS
+
+```sh
+cat /etc/hosts
+systemd-resolve --status | grep Current
+ping google.com
+nslookup google.com
+```
+
+### Downloading files with _curl_ and _wget_
+
+```sh
 
 ```
