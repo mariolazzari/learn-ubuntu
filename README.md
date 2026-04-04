@@ -501,7 +501,7 @@ cat host_details.txt
 ls / >>files.txt
 ```
 
-### Output redirection with *pipes*
+### Output redirection with _pipes_
 
 #### What is pipe?
 
@@ -514,7 +514,7 @@ la | grep 'mario'
 echo "hello" | tee output.txt
 ```
 
-### How to *sort*
+### How to _sort_
 
 ```sh
 sort countries
@@ -529,8 +529,40 @@ man sort
 ls -l | sort -nk5
 ```
 
-### Editing with *sed*
+### Editing with _sed_
+
+- Mutil tools
+  - find & replace
+  - insert
+  - delete
+- Edit file without open
+- By default does not change file
 
 ```sh
-
+# replace 1st
+sed 's/foo/bar/' file.txt
+# replace all
+sed 's/foo/bar/g' file.txt
+# update in place
+sed -i 's/foo/bar/g' file.txt
+# delete line number
+sed -i '3d' file.txt
+# replace 1st
+sed '1 s/foo/bar/' file.txt
 ```
+
+### Links
+
+- Shortcut to another file or directory
+- Hard: file only
+- Soft: file and directory
+
+```sh
+ln scripts/hello.sh hadr-hello.sh
+ls -ila # i -> inode
+ln scripts/hello.sh hard-hello.sh
+ln -s scripts/hello.sh soft-hello.sh
+ls -ila
+```
+
+###
