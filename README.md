@@ -737,6 +737,109 @@ nslookup google.com
 
 ### Downloading files with _curl_ and _wget_
 
+- Multiple protocols
+- No user interactions
+- wget simpler
+- curl more flexible
+
 ```sh
+curl -I mariolazzari.it
+curl -L mariolazzari.it
+wget -P mario mariolazzari.it
+```
+
+### FTP
+
+```sh
+ftp
+?
+open speedtest.tele2.net
+ls
+get 2MB.zip
+put 2MB.zip
+exit
+```
+
+### SCP
+
+```sh
+# copy from remote server
+scp mario@mariolazzari.it:file.txt .
+# copy to remote server
+scp filex.txt mario@mariolazzari.it:/home/mario
+# copy entire dir
+scp ./docs mario@mariolazzari.it:/home/mario/docs
+```
+
+## Shell scripting
+
+### First script
+
+```sh
+#!/bin/sh
+
+# comment
+echo "my first script"
+```
+
+```sh
+chmod 755 first.sh
+./first.sh
+```
+
+```sh
+#!/bin/sh
+
+echo "Enter new dir name"
+
+read newdir
+
+echo "New dir name: $newdir"
+
+FULLPATH=$HOME/$newdir
+
+mkdir $FULLPATH
+
+echo "New dir created at: $FULLPATH"
+```
+
+### PATH
+
+```sh
+.bashrc
+echo $PATH
+```
+
+### Cron jobs
+
+_cron_ runs a command at spicified time or interval
+[Editor](https://crontab.guru/)
 
 ```
+* * * * * command
+│ │ │ │ │
+│ │ │ │ └── week day (0-7, sunday = 0 o 7)
+│ │ │ └──── month (1-12)
+│ │ └────── day of month (1-31)
+│ └──────── time (0-23)
+└────────── minute (0-59)
+```
+
+```sh
+# edit config
+sudo crontab -e
+# show config
+crontab -l
+# every day at 2:30
+30 2 * * * /usr/local/bin/backup.sh
+# every 5 minutes
+*/5 * * * * /usr/bin/php /var/www/app/script.php
+# Backup DB every night (with logging)
+0 2 * * * /usr/local/bin/pg_backup.sh >> /var/log/pg_backup.log 2>&1
+# cache cleaning every hour
+0 * * * * /usr/local/bin/cache_cleanup.sh
+```
+
+## Troubleshoting
+
+### Monitoring logs with _tail_
