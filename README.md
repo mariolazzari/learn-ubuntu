@@ -858,5 +858,45 @@ tail file1 file2
 ### Checking disk space with _df_
 
 ```sh
+df
+# human readable
+df -h
+```
+
+### Monitoring with _watch_
+
+Runs commands at regular time and displays outputs.
+
+```sh
+# watch date every 2 seconds
+watch date
+# since last update
+watch -d date
+# every 10 seconds
+watch -n 10 date
+```
+
+### Active network connections with _ss_
+
+```sh
+ss -ltpn
+
+```
+
+### Network trubleshooting with _tcpdumping_
+
+```sh
+# show available interfaces
+sudo tcpdump -D
+# specific interface
+sudo tcpdump -i <interface>
+# capture 5 packages
+sudo tcpdump -c 5
+# save to file
+sudo tcpdump -w file.pcap
+# ex
+sudo tcpdump -i eth0 port:80
+# capture all traffic from & to
+sudo tcpdump host 192.168.1.1
 
 ```
