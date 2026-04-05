@@ -843,3 +843,20 @@ crontab -l
 ## Troubleshoting
 
 ### Monitoring logs with _tail_
+
+```sh
+# show last 10 rows
+tail logs.txt
+# realtime
+tail -f logs.txt
+# last 50 rows
+tail -n 50
+# multiple files
+tail file1 file2
+```
+
+### Checking disk space with _df_
+
+```sh
+
+```
