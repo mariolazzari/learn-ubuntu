@@ -1,8 +1,94 @@
 # Learn Ubuntu
 
-## Introduction
+- 1. [Introduction](#Introduction)
+  - 1.1. [File system](#Filesystem)
+  - 1.2. [Linux Directory Reference](#LinuxDirectoryReference)
+    - 1.2.1. [/bin](#bin)
+    - 1.2.2. [/sbin](#sbin)
+    - 1.2.3. [/boot](#boot)
+    - 1.2.4. [/dev](#dev)
+    - 1.2.5. [/etc](#etc)
+    - 1.2.6. [/home](#home)
+    - 1.2.7. [/lib & /lib64](#liblib64)
+    - 1.2.8. [/media](#media)
+    - 1.2.9. [/mnt](#mnt)
+    - 1.2.10. [/opt](#opt)
+    - 1.2.11. [/proc](#proc)
+    - 1.2.12. [/root](#root)
+    - 1.2.13. [/sys](#sys)
+    - 1.2.14. [/tmp](#tmp)
+    - 1.2.15. [/usr](#usr)
+    - 1.2.16. [/var](#var)
+  - 1.3. [Shells](#Shells)
+  - 1.4. [Navigating directories with _cd_](#Navigatingdirectorieswith_cd_)
+  - 1.5. [Listing files with _ls_](#Listingfileswith_ls_)
+  - 1.6. [Using _cat_ to read files](#Using_cat_toreadfiles)
+  - 1.7. [Writing and combining files with _cat_](#Writingandcombiningfileswith_cat_)
+  - 1.8. [_man_](#man_)
+  - 1.9. [Creating new directories with _mkdir_](#Creatingnewdirectorieswith_mkdir_)
+  - 1.10. [How to copy files and directories with _cp_](#Howtocopyfilesanddirectorieswith_cp_)
+  - 1.11. [Deleting files with _rm_](#Deletingfileswith_rm_)
+  - 1.12. [Moving files with _mv_](#Movingfileswith_mv_)
+  - 1.13. [Sudo & root](#Sudoroot)
+    - 1.13.1. [Root account](#Rootaccount)
+    - 1.13.2. [_sudo_](#sudo_)
+  - 1.14. [Finding files](#Findingfiles)
+  - 1.15. [_grep_](#grep_)
+  - 1.16. [Edit files with _nano_](#Editfileswith_nano_)
+  - 1.17. [Comparing two files with _diff_](#Comparingtwofileswith_diff_)
+  - 1.18. [Archiving files with _tar_](#Archivingfileswith_tar_)
+  - 1.19. [How to compress files](#Howtocompressfiles)
+  - 1.20. [Changing user & root passwords](#Changinguserrootpasswords)
+  - 1.21. [Switching users with _su_](#Switchinguserswith_su_)
+  - 1.22. [Changing your _hostname_](#Changingyour_hostname_)
+  - 1.23. [Challenge #1](#Challenge1)
+- 2. [Intermediate](#Intermediate)
+  - 2.1. [Installing software](#Installingsoftware)
+  - 2.2. [Removing / unistalling software](#Removingunistallingsoftware)
+  - 2.3. [Output redirection](#Outputredirection)
+  - 2.4. [Output redirection lab](#Outputredirectionlab)
+  - 2.5. [Output redirection with _pipes_](#Outputredirectionwith_pipes_)
+    - 2.5.1. [What is pipe?](#Whatispipe)
+  - 2.6. [How to _sort_](#Howto_sort_)
+  - 2.7. [Editing with _sed_](#Editingwith_sed_)
+  - 2.8. [Links](#Links)
+  - 2.9. [Create new user](#Createnewuser)
+  - 2.10. [User groups](#Usergroups)
+  - 2.11. [Permissions with _chmod_](#Permissionswith_chmod_)
+  - 2.12. [Ownerships with _chown_](#Ownershipswith_chown_)
+  - 2.13. [Shutdown and reboot](#Shutdownandreboot)
+  - 2.14. [Aliases](#Aliases)
+  - 2.15. [Challenge lab 2](#Challengelab2)
+- 3. [Networking](#Networking)
+  - 3.1. [ipconfig vs ip addr](#ipconfigvsipaddr)
+    - 3.1.1. [ifconfig vs ip addr](#ifconfigvsipaddr)
+    - 3.1.2. [/etc/network/interfaces](#etcnetworkinterfaces)
+  - 3.2. [IP informations](#IPinformations)
+  - 3.3. [SSH](#SSH)
+  - 3.4. [Static IP](#StaticIP)
+  - 3.5. [ipconfic vs ip](#ipconficvsip)
+    - 3.5.1. [ifconfig vs ip addr](#ifconfigvsipaddr-1)
+    - 3.5.2. [/etc/network/interfaces](#etcnetworkinterfaces-1)
+  - 3.6. [Enable interface](#Enableinterface)
+  - 3.7. [Public key authentication](#Publickeyauthentication)
+  - 3.8. [DNS](#DNS)
+  - 3.9. [Downloading files with _curl_ and _wget_](#Downloadingfileswith_curl_and_wget_)
+  - 3.10. [FTP](#FTP)
+  - 3.11. [SCP](#SCP)
+- 4. [Shell scripting](#Shellscripting)
+  - 4.1. [First script](#Firstscript)
+  - 4.2. [PATH](#PATH)
+  - 4.3. [Cron jobs](#Cronjobs)
+- 5. [Troubleshoting](#Troubleshoting)
+  - 5.1. [Monitoring logs with _tail_](#Monitoringlogswith_tail_)
+  - 5.2. [Checking disk space with _df_](#Checkingdiskspacewith_df_)
+  - 5.3. [Monitoring with _watch_](#Monitoringwith_watch_)
+  - 5.4. [Active network connections with _ss_](#Activenetworkconnectionswith_ss_)
+  - 5.5. [Network trubleshooting with _tcpdumping_](#Networktrubleshootingwith_tcpdumping_)
 
-### File system
+## 1. <a name='Introduction'></a>Introduction
+
+### 1.1. <a name='Filesystem'></a>File system
 
 - / (root)
 - /bin (binaries)
@@ -21,75 +107,75 @@ cat hostname
 ls home
 ```
 
-### Linux Directory Reference
+### 1.2. <a name='LinuxDirectoryReference'></a>Linux Directory Reference
 
 In the last lesson, we discussed some of the common directories you'll see inside of Ubuntu throughout this course. These directories are found in most Linux distributions, so it's important to at least have a very high level understanding of what they're used for! Let's look at some of the common ones:
 
-#### /bin
+#### 1.2.1. <a name='bin'></a>/bin
 
 Used to store critical binaries used within the Linux kernel. When you type a command in the terminal, this is the directory which is searched through. For example, if you type "ls" - there is actually an "ls" binary inside of /bin that is executed when you enter that command.
 
-#### /sbin
+#### 1.2.2. <a name='sbin'></a>/sbin
 
 Very similar to /bin, /sbin is used primarily for system binaries (sbin), which are utilities and binaries that are typically used by root/privileged users and not normal users. These are things like route, ifconfig, and fdisk. which are all used to manage networking, disk formatting, and a lot more.
 
-#### /boot
+#### 1.2.3. <a name='boot'></a>/boot
 
 Files in this directory are needed for the system to boot. This directory should rarely, if ever be touched, or else you risk your system having issues starting up!
 
-#### /dev
+#### 1.2.4. <a name='dev'></a>/dev
 
 Stands for "device," and not developer! This is where hardware devices are represented in the system, such as CPU, serial lines, hard drives, cdrom, and more.
 
-#### /etc
+#### 1.2.5. <a name='etc'></a>/etc
 
 System settings and configuration. If you want to change things like hostname, DNS/nameserver settings, or IP address configuration, those will all be found inside of /etc.
 
-#### /home
+#### 1.2.6. <a name='home'></a>/home
 
 User files will be found inside of /home. These would be things such as documents, photos, text files, etc - and each user will automatically get their own home directory when the user is created. For example, user "mike" would be located at /home/mike.
 
-#### /lib & /lib64
+#### 1.2.7. <a name='liblib64'></a>/lib & /lib64
 
 Critical system files, such as library images that are used to aid in system boot.
 
-#### /media
+#### 1.2.8. <a name='media'></a>/media
 
 Everything inside of linux is treated as a file, including external media - such as thumb drives and CD ROM disks! If you were to plug a usb thumb drive into your linux system, in most cases, you would then see an entry in /media appear.
 
-#### /mnt
+#### 1.2.9. <a name='mnt'></a>/mnt
 
 Used to temporarily mount USB drives, or ISO images. Mounting essentially makes external files accessible on the system by giving them a directory that they can be accessed at.
 
-#### /opt
+#### 1.2.10. <a name='opt'></a>/opt
 
 Used by third party software, for plugins and such - stands for "Optional"
 
-#### /proc
+#### 1.2.11. <a name='proc'></a>/proc
 
 Information about running processes. The entries here are not necessarily files, they are essentially placeholders to access system information, such as CPU info (found at /proc/cpuinfo).
 
-#### /root
+#### 1.2.12. <a name='root'></a>/root
 
 Used as the root users home directory. Meant to remain separate from user home directories for security purposes.
 
-#### /sys
+#### 1.2.13. <a name='sys'></a>/sys
 
 Used as a virtual filesystem, this directory shows information related to kernel subsystems, hardware devices, and device drivers.
 
-#### /tmp
+#### 1.2.14. <a name='tmp'></a>/tmp
 
 Used for temporary files, such as crash logs, install logs, etc.
 
-#### /usr
+#### 1.2.15. <a name='usr'></a>/usr
 
 Contains subdirectories with commands that are considered nonessential to the linux operating system, as well as header files which are used to compile C programs.
 
-#### /var
+#### 1.2.16. <a name='var'></a>/var
 
 Used for variable data, such as logs, databases, and temporary spool (email, printing). This is an important directory because it contains /var/log which is where most logs are stored.
 
-### Shells
+### 1.3. <a name='Shells'></a>Shells
 
 - Interfaces to Linux systems
 - Enviroments for running programs
@@ -107,7 +193,7 @@ echo $0
 chsh
 ```
 
-### Navigating directories with _cd_
+### 1.4. <a name='Navigatingdirectorieswith_cd_'></a>Navigating directories with _cd_
 
 ```sh
 # print working dir
@@ -120,7 +206,7 @@ cd /
 cd /home/mario
 ```
 
-### Listing files with _ls_
+### 1.5. <a name='Listingfileswith_ls_'></a>Listing files with _ls_
 
 - Lists files in current directory
 - Options
@@ -141,7 +227,7 @@ ls -X
 ls -R
 ```
 
-### Using _cat_ to read files
+### 1.6. <a name='Using_cat_toreadfiles'></a>Using _cat_ to read files
 
 View files cointents
 
@@ -149,7 +235,7 @@ View files cointents
 cat pets.txt
 ```
 
-### Writing and combining files with _cat_
+### 1.7. <a name='Writingandcombiningfileswith_cat_'></a>Writing and combining files with _cat_
 
 ```sh
 # write in file
@@ -164,14 +250,14 @@ cat men-names women-names > all-names
 cat all-names
 ```
 
-### _man_
+### 1.8. <a name='man_'></a>_man_
 
 ```sh
 man cat
 cat -n all-names
 ```
 
-### Creating new directories with _mkdir_
+### 1.9. <a name='Creatingnewdirectorieswith_mkdir_'></a>Creating new directories with _mkdir_
 
 ```sh
 mkdir mario
@@ -182,7 +268,7 @@ mkdir {dir1,dir2,dir3,dir4}
 mkdir -v test-dir
 ```
 
-### How to copy files and directories with _cp_
+### 1.10. <a name='Howtocopyfilesanddirectorieswith_cp_'></a>How to copy files and directories with _cp_
 
 ```sh
 cp file1 file2
@@ -192,7 +278,7 @@ cp --help | less
 cp -b file1 file2 # file2
 ```
 
-### Deleting files with _rm_
+### 1.11. <a name='Deletingfileswith_rm_'></a>Deleting files with _rm_
 
 ```sh
 # delete file
@@ -207,7 +293,7 @@ rm -ri deleteme
 rm *.txt
 ```
 
-### Moving files with _mv_
+### 1.12. <a name='Movingfileswith_mv_'></a>Moving files with _mv_
 
 ```sh
 touch homewor
@@ -219,9 +305,9 @@ ls
 mv -i
 ```
 
-### Sudo & root
+### 1.13. <a name='Sudoroot'></a>Sudo & root
 
-#### Root account
+#### 1.13.1. <a name='Rootaccount'></a>Root account
 
 - Superuser
 - Kost privileged user
@@ -231,7 +317,7 @@ mv -i
   - Security risks
   - Mistakes
 
-#### _sudo_
+#### 1.13.2. <a name='sudo_'></a>_sudo_
 
 - Allows you to run commands as another users
 - Amministrations grants
@@ -241,7 +327,7 @@ mv -i
   - sudo command
   - sudo -u whoami username
 
-### Finding files
+### 1.14. <a name='Findingfiles'></a>Finding files
 
 find <start path> -name 'search'
 
@@ -252,73 +338,7 @@ find /home/mario -iname 'homework'
 find / -iname '*openssh*'
 ```
 
-## Networking
-
-### Viewing IP
-
-Note: ifconfig / ipconfig deprecated: available in net-tools package
-
-```sh
-ip a
-ls /etc/netplan/ # netplan configuration
-cat /etc/netplan/*
-ip route # default routes
-```
-
-### Enabling SSH
-
-```sh
-sudo apt update
-sudo apt install openssh-server
-sudo systemctl status ssh
-sudo systemctl start ssh
-ip a
-sudo nano /etc/ssh/sshd_config
-sudo systemctl restart ssh
-```
-
-### Static IP
-
-```sh
-netplan
-cd /etc/netplan
-ls
-nano 01-network-manager-all.yaml
-sudo netplan apply
-ip a
-```
-
-```yaml
-# /etc/netplan/01-static.yaml
-network:
-  version: 2
-  renderer: networkd
-
-  ethernets:
-    eth0:
-      dhcp4: false
-      addresses:
-        - 192.168.1.100/24
-      routes:
-        - to: default
-          via: 192.168.1.1
-      nameservers:
-        addresses:
-          - 8.8.8.8
-          - 1.1.1.1
-```
-
-### ipconfig vs ip addr
-
-#### ifconfig vs ip addr
-
-If you've dabbled in Linux before, you might be familiar with the "ifconfig" command. This is somewhat equivalent to the "ipconfig" command in Windows, and lets you view IP configuration in Linux, and also assign static IP addresses. That said, the ifconfig command is being deprecated in linux, in favor of the ip addr command (or "ip a" as I prefer to type!)
-
-#### /etc/network/interfaces
-
-In the previous versions of Ubuntu, you managed your network interfaces with a file called "interfaces" located at /etc/network. In 20.04 and moving forward, the preferred method is to leverage netplan (as I demonstrate on the 'Setting a static IP' lesson). If you'd like to revert back to the old way of managing your networking (and not use netplan), you can follow the instructions at the blog in the resources section of this article.
-
-### _grep_
+### 1.15. <a name='grep_'></a>_grep_
 
 ```sh
 grep 'mario' admin-users
@@ -334,13 +354,13 @@ echo $HOME
 grep -r 'mario' $HOME
 ```
 
-### Edit files with _nano_
+### 1.16. <a name='Editfileswith_nano_'></a>Edit files with _nano_
 
 ```sh
 nano
 ```
 
-### Comparing two files with _diff_
+### 1.17. <a name='Comparingtwofileswith_diff_'></a>Comparing two files with _diff_
 
 ```sh
 diff file1 file2
@@ -351,7 +371,7 @@ diff -y file1 file2
 diff dir1 dir2
 ```
 
-### Archiving files with _tar_
+### 1.18. <a name='Archivingfileswith_tar_'></a>Archiving files with _tar_
 
 ```sh
 # c->create, v->verbose, f->file
@@ -364,7 +384,7 @@ tac -xvf config.tar
 tac -xvf config.tar -C /home/mario/destination
 ```
 
-### How to compress files
+### 1.19. <a name='Howtocompressfiles'></a>How to compress files
 
 ```sh
 # Gzip
@@ -373,7 +393,7 @@ tac -cvzf config.tar.gz /home/mario/config
 tac -cvjf config.tar.bzip2 /home/mario/config
 ```
 
-### Changing user & root passwords
+### 1.20. <a name='Changinguserrootpasswords'></a>Changing user & root passwords
 
 ```sh
 # change current user password
@@ -383,7 +403,7 @@ sudo passwd mario
 sudo passwd root
 ```
 
-### Switching users with _su_
+### 1.21. <a name='Switchinguserswith_su_'></a>Switching users with _su_
 
 ```sh
 su - mario
@@ -392,7 +412,7 @@ whoami
 su -
 ```
 
-### Changing your _hostname_
+### 1.22. <a name='Changingyour_hostname_'></a>Changing your _hostname_
 
 ```sh
 sudo cat /etc/hostname
@@ -402,7 +422,7 @@ sudo nano /etc/hosts
 sudo reboot
 ```
 
-### Challenge #1
+### 1.23. <a name='Challenge1'></a>Challenge #1
 
 ```sh
 # task1
@@ -452,9 +472,9 @@ cd
 find . -iname 'm.*' -type d
 ```
 
-## Intermediate
+## 2. <a name='Intermediate'></a>Intermediate
 
-### Installing software
+### 2.1. <a name='Installingsoftware'></a>Installing software
 
 ```sh
 sudo apt update
@@ -464,7 +484,7 @@ sudo apt upgrade
 apt list --installed | less
 ```
 
-### Removing / unistalling software
+### 2.2. <a name='Removingunistallingsoftware'></a>Removing / unistalling software
 
 ```sh
 sudo apt remove apache2
@@ -472,7 +492,7 @@ sudo apt remove apache2
 sudo apt purge apache2
 ```
 
-### Output redirection
+### 2.3. <a name='Outputredirection'></a>Output redirection
 
 | Overwrite | Stream | Append |
 | --------- | ------ | ------ |
@@ -486,7 +506,7 @@ ls > files.txt
 ls % 2> err.txt
 ```
 
-### Output redirection lab
+### 2.4. <a name='Outputredirectionlab'></a>Output redirection lab
 
 ```sh
 ls % 2> error.txt
@@ -501,9 +521,9 @@ cat host_details.txt
 ls / >>files.txt
 ```
 
-### Output redirection with _pipes_
+### 2.5. <a name='Outputredirectionwith_pipes_'></a>Output redirection with _pipes_
 
-#### What is pipe?
+#### 2.5.1. <a name='Whatispipe'></a>What is pipe?
 
 - Another form of redirection
 - Redirect standard output to another command
@@ -514,7 +534,7 @@ la | grep 'mario'
 echo "hello" | tee output.txt
 ```
 
-### How to _sort_
+### 2.6. <a name='Howto_sort_'></a>How to _sort_
 
 ```sh
 sort countries
@@ -529,7 +549,7 @@ man sort
 ls -l | sort -nk5
 ```
 
-### Editing with _sed_
+### 2.7. <a name='Editingwith_sed_'></a>Editing with _sed_
 
 - Mutil tools
   - find & replace
@@ -551,7 +571,7 @@ sed -i '3d' file.txt
 sed '1 s/foo/bar/' file.txt
 ```
 
-### Links
+### 2.8. <a name='Links'></a>Links
 
 - Shortcut to another file or directory
 - Hard: file only
@@ -565,13 +585,13 @@ ln -s scripts/hello.sh soft-hello.sh
 ls -ila
 ```
 
-### Create new user
+### 2.9. <a name='Createnewuser'></a>Create new user
 
 ```sh
 sudo adduser maria
 ```
 
-### User groups
+### 2.10. <a name='Usergroups'></a>User groups
 
 ```sh
 groups
@@ -579,7 +599,7 @@ groups mario
 sudo adduser mario sudo
 ```
 
-### Permissions with _chmod_
+### 2.11. <a name='Permissionswith_chmod_'></a>Permissions with _chmod_
 
 ```sh
 chmod 700 myfile.txt
@@ -587,14 +607,14 @@ chmod 666 file.txt
 chmod 777 all.txt
 ```
 
-### Ownerships with _chown_
+### 2.12. <a name='Ownershipswith_chown_'></a>Ownerships with _chown_
 
 ```sh
 sudo chown mario file.txt
 sudo chgrp riit file.txt
 ```
 
-### Shutdown and reboot
+### 2.13. <a name='Shutdownandreboot'></a>Shutdown and reboot
 
 ```sh
 # shutdown in minutes
@@ -607,7 +627,7 @@ shutdown +30
 shutdown -c
 ```
 
-### Aliases
+### 2.14. <a name='Aliases'></a>Aliases
 
 Add aliases in _.bashrc_
 
@@ -616,7 +636,7 @@ alias reach='ping -c 4 1.1.1.1'
 alias c='clear'
 ```
 
-### Challenge lab 2
+### 2.15. <a name='Challengelab2'></a>Challenge lab 2
 
 ```sh
 apt install apache2
@@ -626,9 +646,19 @@ grep -in 'remotedb' /etc/debconf.conf
 sudo adduser dinesh
 ```
 
-## Networking
+## 3. <a name='Networking'></a>Networking
 
-### IP informations
+### 3.1. <a name='ipconfigvsipaddr'></a>ipconfig vs ip addr
+
+#### 3.1.1. <a name='ifconfigvsipaddr'></a>ifconfig vs ip addr
+
+If you've dabbled in Linux before, you might be familiar with the "ifconfig" command. This is somewhat equivalent to the "ipconfig" command in Windows, and lets you view IP configuration in Linux, and also assign static IP addresses. That said, the ifconfig command is being deprecated in linux, in favor of the ip addr command (or "ip a" as I prefer to type!)
+
+#### 3.1.2. <a name='etcnetworkinterfaces'></a>/etc/network/interfaces
+
+In the previous versions of Ubuntu, you managed your network interfaces with a file called "interfaces" located at /etc/network. In 20.04 and moving forward, the preferred method is to leverage netplan (as I demonstrate on the 'Setting a static IP' lesson). If you'd like to revert back to the old way of managing your networking (and not use netplan), you can follow the instructions at the blog in the resources section of this article.
+
+### 3.2. <a name='IPinformations'></a>IP informations
 
 ```sh
 # deprecated
@@ -640,7 +670,7 @@ cat /etc/netplan
 ip route
 ```
 
-### SSH
+### 3.3. <a name='SSH'></a>SSH
 
 ```sh
 sudo apt install openssh-server
@@ -648,7 +678,7 @@ sudo systemctl status ssh
 ssh mario@myserver
 ```
 
-### Static IP
+### 3.4. <a name='StaticIP'></a>Static IP
 
 ```sh
 cd /etc/netplan
@@ -697,19 +727,19 @@ sudo netplan try
 sudo netplan apply
 ```
 
-### ipconfic vs ip
+### 3.5. <a name='ipconficvsip'></a>ipconfic vs ip
 
 [doc](https://linuxconfig.org/how-to-switch-back-networking-to-etc-network-interfaces-on-ubuntu-20-04-focal-fossa-linux)
 
-#### ifconfig vs ip addr
+#### 3.5.1. <a name='ifconfigvsipaddr-1'></a>ifconfig vs ip addr
 
 If you've dabbled in Linux before, you might be familiar with the "ifconfig" command. This is somewhat equivalent to the "ipconfig" command in Windows, and lets you view IP configuration in Linux, and also assign static IP addresses. That said, the ifconfig command is being deprecated in linux, in favor of the ip addr command (or "ip a" as I prefer to type!)
 
-#### /etc/network/interfaces
+#### 3.5.2. <a name='etcnetworkinterfaces-1'></a>/etc/network/interfaces
 
 In the previous versions of Ubuntu, you managed your network interfaces with a file called "interfaces" located at /etc/network. In 20.04 and moving forward, the preferred method is to leverage netplan (as I demonstrate on the 'Setting a static IP' lesson). If you'd like to revert back to the old way of managing your networking (and not use netplan), you can follow the instructions at the blog in the resources section of this article.
 
-### Enable interface
+### 3.6. <a name='Enableinterface'></a>Enable interface
 
 ```sh
 ip a | grep 'status'
@@ -717,7 +747,7 @@ sudo ip link set eth0 down
 sudo ip link set eth0 up
 ```
 
-### Public key authentication
+### 3.7. <a name='Publickeyauthentication'></a>Public key authentication
 
 ```sh
 cd
@@ -726,7 +756,7 @@ ssh-keygen -t rsa
 ssh-copy-id mario@mariolazzari.it
 ```
 
-### DNS
+### 3.8. <a name='DNS'></a>DNS
 
 ```sh
 cat /etc/hosts
@@ -735,7 +765,7 @@ ping google.com
 nslookup google.com
 ```
 
-### Downloading files with _curl_ and _wget_
+### 3.9. <a name='Downloadingfileswith_curl_and_wget_'></a>Downloading files with _curl_ and _wget_
 
 - Multiple protocols
 - No user interactions
@@ -748,7 +778,7 @@ curl -L mariolazzari.it
 wget -P mario mariolazzari.it
 ```
 
-### FTP
+### 3.10. <a name='FTP'></a>FTP
 
 ```sh
 ftp
@@ -760,7 +790,7 @@ put 2MB.zip
 exit
 ```
 
-### SCP
+### 3.11. <a name='SCP'></a>SCP
 
 ```sh
 # copy from remote server
@@ -771,9 +801,9 @@ scp filex.txt mario@mariolazzari.it:/home/mario
 scp ./docs mario@mariolazzari.it:/home/mario/docs
 ```
 
-## Shell scripting
+## 4. <a name='Shellscripting'></a>Shell scripting
 
-### First script
+### 4.1. <a name='Firstscript'></a>First script
 
 ```sh
 #!/bin/sh
@@ -803,14 +833,14 @@ mkdir $FULLPATH
 echo "New dir created at: $FULLPATH"
 ```
 
-### PATH
+### 4.2. <a name='PATH'></a>PATH
 
 ```sh
 .bashrc
 echo $PATH
 ```
 
-### Cron jobs
+### 4.3. <a name='Cronjobs'></a>Cron jobs
 
 _cron_ runs a command at spicified time or interval
 [Editor](https://crontab.guru/)
@@ -840,9 +870,9 @@ crontab -l
 0 * * * * /usr/local/bin/cache_cleanup.sh
 ```
 
-## Troubleshoting
+## 5. <a name='Troubleshoting'></a>Troubleshoting
 
-### Monitoring logs with _tail_
+### 5.1. <a name='Monitoringlogswith_tail_'></a>Monitoring logs with _tail_
 
 ```sh
 # show last 10 rows
@@ -855,7 +885,7 @@ tail -n 50
 tail file1 file2
 ```
 
-### Checking disk space with _df_
+### 5.2. <a name='Checkingdiskspacewith_df_'></a>Checking disk space with _df_
 
 ```sh
 df
@@ -863,7 +893,7 @@ df
 df -h
 ```
 
-### Monitoring with _watch_
+### 5.3. <a name='Monitoringwith_watch_'></a>Monitoring with _watch_
 
 Runs commands at regular time and displays outputs.
 
@@ -876,14 +906,14 @@ watch -d date
 watch -n 10 date
 ```
 
-### Active network connections with _ss_
+### 5.4. <a name='Activenetworkconnectionswith_ss_'></a>Active network connections with _ss_
 
 ```sh
 ss -ltpn
 
 ```
 
-### Network trubleshooting with _tcpdumping_
+### 5.5. <a name='Networktrubleshootingwith_tcpdumping_'></a>Network trubleshooting with _tcpdumping_
 
 ```sh
 # show available interfaces
